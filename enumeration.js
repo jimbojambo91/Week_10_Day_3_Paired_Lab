@@ -4,14 +4,16 @@ Enumeration.prototype = {
 
   forEach: function(array, callback){
     for(var item of array){
-      if(callback(item)){
-        return item;
-      }
+      callback(item);
     }
   },
 
   find: function(array, callback){
-    return this.forEach(array, callback);
+    for(var item of array){
+      if(callback(item)){
+        return item;
+      }
+    }
   },
 
   map: function(array, callback){
@@ -57,9 +59,11 @@ Enumeration.prototype = {
 
   reduce: function(array, callback){
     var total = 0;
-    for (var item of array){
+
+    this.forEach(array, function(item) {
       total = callback(total, item);
-    }
+    });
+
     return total;
   }
 }
