@@ -13,8 +13,29 @@ Enumeration.prototype = {
   map: function(array, callback){
     var newArray = [];
     for (var item of array){
-      
+      newArray.push(callback(item));
     }
+    return newArray;
+  },
+
+  filter: function(array, callback){
+    var newArray = [];
+    for (var item of array){
+      if(callback(item)){
+        newArray.push(item);
+      }
+    }
+    return newArray;
+  },
+
+  some: function(array, callback){
+    var boolean = false;
+    for (var item of array){
+      if(callback(item)){
+        boolean = true;
+      }
+    }
+    return boolean;
   }
 
 }
