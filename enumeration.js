@@ -57,7 +57,14 @@ Enumeration.prototype = {
       total = callback(total, item);
     }
     return total;
+  },
+  
+  ForEach: function(array, callback){
+    for(var item of array){
+      callback(item);
+    }
   }
+
 
 
 
