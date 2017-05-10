@@ -49,7 +49,17 @@ Enumeration.prototype = {
       }
     }
     return boolean;
+  },
+
+  reduce: function(array, callback){
+    var total = 0;
+    for (var item of array){
+      total = callback(total, item);
+    }
+    return total;
   }
+
+
 
 }
 
