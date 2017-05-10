@@ -36,6 +36,19 @@ Enumeration.prototype = {
       }
     }
     return boolean;
+  },
+
+  every: function(array, callback){
+    var boolean = false;
+    for (var item of array){
+      if(callback(item)){
+        boolean = true;
+      } else {
+        boolean = false;
+        break;
+      }
+    }
+    return boolean;
   }
 
 }
